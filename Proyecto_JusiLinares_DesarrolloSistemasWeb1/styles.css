@@ -1,0 +1,145 @@
+body {
+    margin: 0; /*Tamaño del margen*/
+    padding: 0; /*Configura el relleno interior del body*/
+    font-family: sans-serif; /*Define la fuente de texto utilizada en el body*/
+    background-color: rgb(12, 9, 41); /*Establece el color de fondo del body usando rgb*/
+    padding-bottom: 5rem; /*Agrega un relleno en la parte inferior del body con una altura de 5 unidades "rem". 1.-*/
+    /*1.- Esto crea espacio en blanco adicional en la parte inferior de la página.*/
+}
+
+h1, h2 { /*Aplica el código dentro de las llaves a los textos de H1 y H2*/
+    color: black; /*Color del texto*/
+    padding: 0rem 0; /*Define el relleno para los encabezados*/
+    text-align: center; /*Define la alineación del texto dentro del contenedor*/
+    text-transform: uppercase; /*Transforma el texto de los encabezados en letras mayúsculas.*/
+    font-family: "Arial", cursive; /*Define una fuente (arial) y que el texto este en cursiva*/
+    letter-spacing: 1px; /*Agrega un espaciado adicional entre las letras del texto en los encabezados.*/
+}
+
+p { /*Aplica el código dentro de las llaves a los textos de p*/
+    font-family: Arial, Helvetica, sans-serif; /*Define las fuentes para los parrafos en orden de preferencia, Si el navegador 1.-*/
+    /*1.- no puede mostrar la fuente arial mostrara helvetica y si no se puede con las anteriores mostrara la fuente generica sans-serif*/
+    font-size: 14px; /*Tamaño de la fuente en los elementos p*/
+    letter-spacing: 1.4px; /*Espaciado adicional de 1.4 pixeles entre las letras de los textos de p*/
+    word-spacing: 2px; /*Agrega un espaciado adicional entre las palabras en el texto de los párrafos*/
+    color: #000000; /*Establece el color del texto en negro. El valor "#000000" representa el color negro en formato hexadecimal.*/
+    font-weight: normal; /*Define el grosor de la fuente como "normal". Esto significa que el texto no está en negrita.*/
+    text-decoration: none; /*Elimina cualquier decoración de texto, como subrayado o tachado. */
+    font-style: normal; /*Establece el estilo de la fuente como "normal", lo que significa que no se aplican estilos de fuente itálica.*/
+    font-variant: normal; /*Establece la variante de fuente como "normal". Esto se refiere a ciertas variantes tipográficas que pueden aplicarse a algunas fuentes.*/
+    text-transform: none; /* Indica que no se debe realizar ninguna transformación de texto en los párrafos 1.-*/
+    /*1.- El texto aparecerá como se haya escrito originalmente en el HTML.*/
+}
+
+label { /*Las reglas de estilo dentra de las llaves se aplicara a todos los label*/
+    font-family: arial, sans-serif;
+    font-size: 12px;
+    font-weight: bold; /*Define el grosor de la fuente como "bold" (negrita)*/
+    letter-spacing: 3.2pt; /*Se agrega 3.2 puntos de espacio entre las letras.*/
+    word-spacing: 3.8pt; /*Se añaden 3.8 puntos de espacio entre las palabras.*/
+    color: black;
+}
+
+input[type="date"] { /* Esta línea indica que las reglas de estilo dentro de estas llaves se aplicarán a los elementos input de tipo date*/
+    height: 38px; /*Establece la altura de los campos de entrada de tipo fecha en 38 píxeles.*/
+    padding: 6px 10px; /*Define el espacio interno dentro del campo de entrada, 6 píxeles en la parte superior e inferior y 1.-*/
+    /*1.- un espacio de 10 píxeles en los lados izquierdo y derecho*/
+    background-color: #fff; /*Establece el color de fondo del campo de entrada en blanco  (Escrito en hexadecimal*/
+    border: 1px solid #d1d1d1; /*Define un borde para el campo de entrada, ancho de 1 píxel y un estilo sólido de color gris claro*/
+    border-radius: 4px; /*Aplica un borde redondeado al campo de entrada con un radio de 4 píxeles*/
+    box-shadow: none; /*Elimina cualquier sombra del campo de entrada.aqui se establece en "none", por lo que no hay sombra presente.*/
+    box-sizing: border-box; /*el tamaño total del campo se calcula de manera que no aumente más allá de su ancho especificado.*/
+}
+
+input[type="submit"] { /* Esta línea indica que las reglas de estilo dentro de estas llaves se aplicarán a los elementos input de tipo submit*/
+    padding-top: 2rem 0; /*Establece el espacio de relleno (padding) en la parte superior del botón en 2 unidades y 0 en la parte inferior*/
+    background-color: #59c4eb; /*Define el color de fondo del botón*/
+    border-radius: 8px; /*Aplica un radio de borde de 8 píxeles alrededor de las esquinas del botón, lo que hace verlo un poco redondo*/
+    display: inline-block; /*Esto hace que el botón se comporte como un elemento en línea, pero permite aplicar anchura y altura a él*/
+    cursor: pointer; /*Cambia el cursor del mouse cuando pasa sobre el botón a una forma de "puntero", indicando que el botón es interactivo.*/
+    color: black; /*Color del texto del botón*/
+    font-family: Arial; /*Fuente del texto del botón*/
+    font-size: 20px; /*Establece el tamaño de fuente del texto del botón en 20 píxeles.*/
+    padding: 13px 32px; /*Define el espacio de relleno (padding) del botón en 13 píxeles en la parte superior e inferior y 1.-*/
+    /*1.- 32 píxeles en los lados izquierdo y derecho*/
+}
+
+input { /*Indica que las reglas de estilo dentro de estas llaves se aplicarán a todos los elementos input*/
+    height: 38px; /*Altura de los input*/
+    padding: 6px 10px; /*Espacio de relleno, 6 pixeles en superior e inferior y 10 pixeles en izquierda y derecha*/
+    background-color: #fff;
+    border: 1px solid #d1d1d1; /*Esto crea un borde delgado alrededor de los elementos input.*/
+    border-radius: 4px; 
+    box-shadow: none;
+    box-sizing: border-box; /*el tamaño total de los input incluirá el relleno y el borde*/
+}
+
+button {
+    background-color: #59c4eb; 
+    border-radius: 8px;
+    display: inline-block;
+    cursor: pointer;
+    color: black;
+    font-family: Arial;
+    font-size: 20px;
+    padding: 13px 32px;
+}
+
+.dive { /*Las reglas de estilo dentro de las llaves se aplicaran a todos los elementos HTML que tengan la clase CSS "dive"*/
+    height: 580px; /*Establece la altura de los elementos con la clase "dive" en 580 píxeles*/
+    width: 800px; /*Establece el ancho de los elementos con la clase "dive" en 800 píxeles.*/
+    border: 5px solid #FFFFFF; /*Define un borde para los elementos con la clase "dive". El borde tendrá un ancho de 5 píxeles 1.-*/
+    /*1.- Será de tipo sólido y tendrá un color blanco*/
+    border-radius: 10px; /*Redondea 10 pixeles las esquinas del div*/
+    background-color: white; /*Color de fondo del div*/
+    margin-top: 2rem; /*Agrega un margen superior de 2 rem al div "dive"*/
+    margin-left: 19rem; /*Agrega un margen izquierdo de 19 rem al div "dive"*/
+}
+
+.dive2 { /*Lo mismo que arriba pero para la pagina resultados.html en vez de index.html*/
+    height: 580px;
+    width: 800px;
+    border: 5px solid #FFFFFF;
+    border-radius: 10px;
+    background-color: white;
+    margin-top: 2rem;
+    margin-left: 19rem;
+}
+
+#popUpBox { /*las reglas de estilo dentro de estas llaves se aplicarán al elemento HTML con el id "popUpBox"*/
+    width: 500px;
+    overflow: hidden; /*Oculta cualquier contenido que se desborde del elemento, asegura que el contenido interno no sea visible fuera de los límites*/
+    background: rgb(255, 243, 243); /*Establece color de fondo del popUpBox usando un valor de color rgb*/
+    border-color: black; /*Color del borde*/
+    box-shadow: 0 0 10px black; /*Aplica sombra, La sombra tiene un desplazamiento horizontal y vertical de 0 (lo que significa que está centrada) 1.-*/
+    /*1.- un desenfoque de 10 píxeles y es de color negro.*/
+    border-radius: 10px;
+    position: absolute; /* Define la posición del "popUpBox" como absoluta en relación con su elemento primario.*/
+    top: 50%; /*Coloca la parte superior del "popUpBox" en el 50% de la altura del elemento primario (generalmente el cuerpo de la página).*/
+    left: 50%; /*Coloca la parte izquierda del "popUpBox" en el 50% del ancho del elemento primario.*/
+    transform: translate(-50%, -50%); /*Aplica una transformación que desplaza el "popUpBox" en sentido contrario 1.-*/
+    /*al 50% de su ancho y alto, lo que efectivamente lo centra tanto horizontal como verticalmente en la página.*/
+    z-index: 9999; /*Establece el índice Z en 9999, lo que significa que estará en la parte superior de otros elementos en la página.*/
+    padding: 10px; /*Agrega un espacio interno de 10 píxeles entre el contenido del "popUpBox" y su borde.*/
+    text-align: center; /*Centra el texto dentro del popUp horizontalmente*/
+    display: none; /*Inicialmente, establece el "popUpBox" como no visible (oculto) cuando se carga la página.*/
+}
+
+img.Mario_Congrats {
+    position: relative;
+    /* ajustar los valores para mover la imagen */
+    top: -5px;
+    /*Negativo = Arriba, Positivo = Abajo*/
+    left: 215px;
+    /*Negativo = Izquierda, Positivo = derecha*/
+    width: 350px;
+    /*Ancho*/
+    height: 200px;
+    /*Alto*/
+    margin: 0%;
+    /*Establece el margen para los cuatro lados*/
+    border: 0px solid black;
+    /*Contorno de la imagen*/
+    display: block;
+    /*Oculta la imagen, por lo que no ocupara ningún espacio. La imagen estará oculta y la pagina será desplegada como si el elemento no estuviera allí.*/
+}

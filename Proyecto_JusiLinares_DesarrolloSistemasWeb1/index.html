@@ -1,0 +1,49 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <!--Llamando al archivo styles.css-->
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <!-- Titulo de la página web -->
+    <title> Captura de Datos </title>
+</head>
+
+<body>
+    <div class="dive">
+        <!-- Etiqueta de titulo-->
+        <h1> Captura de Datos Personales </h1> <!-- Salto de linea --> <br>
+        <!-- Subtitulo -->
+        <h2> Ingresa los datos que se te piden </h2> <br>
+        <!-- Parrafo -->
+        <p> Mi primera encuesta </p>
+        <!-- Linea que separa contenidos -->
+        <hr>
+        <!-- Etiqueta de texto descriptivo-->
+        <label for="Name_txt"> Nombre </label>
+        <input type="text" id="Name" name="Name" value="Ingresa tu nombre">
+        <hr>
+
+        <label for="Edad_txt"> Edad </label>
+        <!--Esto es solo para dar 4 espacios entre el texto edad y la caja de texto (intentando que quede alineado)--> &nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="number" id="Edad" name="Edad" value="">
+        <hr>
+
+        <label for="Ciudad_txt"> Ciudad </label> &nbsp;
+        <input type="text" id="Ciudad" name="Ciudad" value="Ingresa tu ciudad">
+        <hr>
+
+        <label for="Fec_Nac_txt"> Fecha de Nacimiento </label>
+        <input type="date" id="Fec_Nac" name="Fec_Nac" value="">
+        <hr>
+
+        <label for="Pasatiempo_txt"> Pasatiempo Favorito </label> &nbsp;
+        <input type="text" id="Pasatiempo" name="Pasatiempo" value="Ingresa tu pasatiempo">
+        <hr>
+
+        <a href="resultados.html">
+            <button type="button">¡Ingresamos Datos!</button>
+        </a>
+    </div>
+</body>
+
+</html>
