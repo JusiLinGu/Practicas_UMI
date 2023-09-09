@@ -18,31 +18,34 @@
         <p> Mi primera encuesta </p>
         <!-- Linea que separa contenidos -->
         <hr>
-        <!-- Etiqueta de texto descriptivo-->
-        <label for="Name_txt"> Nombre </label>
-        <input type="text" id="Name" name="Name" value="Ingresa tu nombre">
-        <hr>
+        <form action="resultados.php" method="POST"> <!-- Abro etiqueta del formulario-->
+            <!-- Etiqueta de texto descriptivo-->
+            <label for="Name_txt"> Nombre </label>
+            <input type="text" id="Name" name="Name" value="Ingresa tu nombre">
+            <!--Los name seran lo que se va a recibir en resultados.php-->
+            <hr>
 
-        <label for="Edad_txt"> Edad </label>
-        <!--Esto es solo para dar 4 espacios entre el texto edad y la caja de texto (intentando que quede alineado)--> &nbsp;&nbsp;&nbsp;&nbsp;
-        <input type="number" id="Edad" name="Edad" value="">
-        <hr>
+            <label for="Edad_txt"> Edad </label>
+            <!--Esto es solo para dar 4 espacios entre el texto edad y la caja de texto (intentando que quede alineado)-->
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="number" id="Edad" name="Edad" value="">
+            <hr>
 
-        <label for="Ciudad_txt"> Ciudad </label> &nbsp;
-        <input type="text" id="Ciudad" name="Ciudad" value="Ingresa tu ciudad">
-        <hr>
+            <label for="Ciudad_txt"> Ciudad </label> &nbsp;
+            <input type="text" id="Ciudad" name="Ciudad" value="Ingresa tu ciudad">
+            <hr>
 
-        <label for="Fec_Nac_txt"> Fecha de Nacimiento </label>
-        <input type="date" id="Fec_Nac" name="Fec_Nac" value="">
-        <hr>
+            <label for="Fec_Nac_txt"> Fecha de Nacimiento </label>
+            <input type="date" id="Fec_Nac" name="Fec_Nac" value="">
+            <hr>
 
-        <label for="Pasatiempo_txt"> Pasatiempo Favorito </label> &nbsp;
-        <input type="text" id="Pasatiempo" name="Pasatiempo" value="Ingresa tu pasatiempo">
-        <hr>
+            <label for="Pasatiempo_txt"> Pasatiempo Favorito </label> &nbsp;
+            <input type="text" id="Pasatiempo" name="Pasatiempo" value="Ingresa tu pasatiempo">
+            <hr>
 
-        <a href="resultados.html">
-            <button type="button">¡Ingresamos Datos!</button>
-        </a>
+            <button type="submit">¡Ingresamos Datos!</button> <!--Se borra la etiqueta a y el type de button a submit 
+            para que envie los datos ingresados por el usuario-->
+        </form>
     </div>
 </body>
 

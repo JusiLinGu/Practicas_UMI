@@ -126,11 +126,14 @@ button {
 }
 
 img.Mario_Congrats {
+    /*display: block;
+    width: 60%; Codigo sencillo para centar la imagen
+    margin: auto;*/
     position: relative;
     /* ajustar los valores para mover la imagen */
     top: -5px;
     /*Negativo = Arriba, Positivo = Abajo*/
-    left: 215px;
+    left: -10px;
     /*Negativo = Izquierda, Positivo = derecha*/
     width: 350px;
     /*Ancho*/
