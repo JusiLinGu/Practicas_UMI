@@ -9,12 +9,15 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.tienda.sara.tiendasara.Service.IProductoService;
 import com.tienda.sara.tiendasara.model.Producto;
+import com.tienda.sara.tiendasara.model.Producto2;
 import com.tienda.sara.tiendasara.model.ServiceResponse;
 import com.tienda.sara.tiendasara.repository.IProductoRepository;
 
@@ -35,21 +38,26 @@ public class ProductoController {
     }
 
     @PostMapping("/save")
-    public ResponseEntity<ServiceResponse> save(@RequestBody Producto producto) {
+    public ResponseEntity<ServiceResponse> save(
+            @RequestParam("Descripcion") String descripcion,
+            @RequestParam("Precio") float precio,
+            @RequestParam("Cantidad") int cantidad,
+            @RequestParam("idCategorias") int idCategorias,
+            @RequestParam("idMarcas") int idMarcas,
+            @RequestParam("img") String img) {
+
+        Producto producto = new Producto();
+        producto.setDescripcion(descripcion);
+        producto.setPrecio(precio);
+        producto.setCantidad(cantidad);
+        producto.setIdCategorias(idCategorias);
+        producto.setIdMarcas(idMarcas);
+        producto.setImg(img);
+
         ServiceResponse serviceResponse = new ServiceResponse();
         int result = iProductoService.save(producto);
         if (result == 1) {
             serviceResponse.setMessage("Item Saved with success");
-        }
-        return new ResponseEntity<>(serviceResponse, HttpStatus.OK);
-    }
-
-    @PostMapping("/update")
-    public ResponseEntity<ServiceResponse> update(@RequestBody Producto producto) {
-        ServiceResponse serviceResponse = new ServiceResponse();
-        int result = iProductoService.update(producto);
-        if (result == 1) {
-            serviceResponse.setMessage("Item update with success");
         }
         return new ResponseEntity<>(serviceResponse, HttpStatus.OK);
     }
@@ -122,5 +130,29 @@ public class ProductoController {
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
+    }
+
+    @GetMapping("/productoById2/{id}")
+    public ResponseEntity<List<Producto2>> getProductosById2(@PathVariable int id) {
+        List<Producto2> productos = ProductoRepository.productoById2(id);
+        if (!productos.isEmpty()) {
+            return new ResponseEntity<>(productos, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @PutMapping("/update")
+    public ResponseEntity<ServiceResponse> updateProduct(@RequestBody Producto2 producto2) {
+        ServiceResponse serviceResponse = new ServiceResponse();
+        int result = iProductoService.update(producto2);
+        if (result == 1) {
+            serviceResponse.setMessage("Item updated with success");
+            return new ResponseEntity<>(serviceResponse, HttpStatus.OK);
+        } else {
+            serviceResponse.setMessage("Failed to update item");
+            return new ResponseEntity<>(serviceResponse, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        
     }
 }

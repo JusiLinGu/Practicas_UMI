@@ -3,7 +3,8 @@ package com.tienda.sara.tiendasara.model;
 import lombok.Data;
 
 @Data
-public class Producto {
+public class Producto2 {
+    int ID;
     String Descripcion;
     float Precio;
     int Cantidad;

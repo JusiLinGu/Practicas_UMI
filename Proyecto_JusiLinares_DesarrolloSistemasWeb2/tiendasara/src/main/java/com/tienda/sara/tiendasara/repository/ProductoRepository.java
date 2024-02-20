@@ -8,6 +8,9 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.tienda.sara.tiendasara.model.Producto;
+import com.tienda.sara.tiendasara.model.Producto2;
+
+import jakarta.annotation.PostConstruct;
 
 @Repository
 public class ProductoRepository implements IProductoRepository {
@@ -15,10 +18,15 @@ public class ProductoRepository implements IProductoRepository {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
+    @PostConstruct
+    public void init() {
+        System.out.println("JdbcTemplate initialized successfully.");
+    }
+
     @Override
     public int deleteByID(int ID) {
-        String SQL = "DELETE * FROM Productos WHERE ID = ?";
-        return jdbcTemplate.update(SQL, new Object[] { ID });
+        String SQL = "DELETE FROM Productos WHERE ID = ?";
+        return jdbcTemplate.update(SQL, ID);
     }
 
     @Override
@@ -29,18 +37,11 @@ public class ProductoRepository implements IProductoRepository {
 
     @Override
     public int save(Producto producto) {
-        String SQL = "INSERT INTO Productos VALUES(?,?,?,?,?,?,?)";
+        String SQL = "INSERT INTO Productos (Descripcion, Precio, Cantidad, idCategorias, idMarcas, img) VALUES(?,?,?,?,?,?)";
         return jdbcTemplate.update(SQL,
-                new Object[] { producto.getID(), producto.getDescripcion(), producto.getPrecio(),
-                        producto.getCantidad(), producto.getIdCategorias(), producto.getIdMarcas() });
-    }
-
-    @Override
-    public int update(Producto producto) {
-        String SQL = "UPDATE Productos SET ID =?, Descripcion =?, Precio =?, Cantidad =?, idCategorias =?, idMarcas =?, img =? WHERE ID = ?";
-        return jdbcTemplate.update(SQL,
-                new Object[] { producto.getID(), producto.getDescripcion(), producto.getPrecio(),
-                        producto.getCantidad(), producto.getIdCategorias(), producto.getIdMarcas() });
+                new Object[] { producto.getDescripcion(), producto.getPrecio(),
+                        producto.getCantidad(), producto.getIdCategorias(), producto.getIdMarcas(),
+                        producto.getImg() });
     }
 
     @Override
@@ -51,7 +52,7 @@ public class ProductoRepository implements IProductoRepository {
 
     @Override
     public float findPrecioById(int id) {
-        String SQL = "SELECT precio FROM Productos WHERE ID = ?";
+        String SQL = "SELECT Precio FROM Productos WHERE ID = ?";
         return jdbcTemplate.queryForObject(SQL, float.class, id);
     }
 
@@ -77,5 +78,19 @@ public class ProductoRepository implements IProductoRepository {
     public List<Producto> productoById(int id) {
         String SQL = "SELECT * FROM Productos WHERE ID = ?";
         return jdbcTemplate.query(SQL, new Object[] { id }, BeanPropertyRowMapper.newInstance(Producto.class));
+    }
+
+    @Override
+    public List<Producto2> productoById2(int id) {
+        String SQL = "SELECT * FROM Productos WHERE ID = ?";
+        return jdbcTemplate.query(SQL, new Object[] { id }, BeanPropertyRowMapper.newInstance(Producto2.class));
+    }
+
+    @Override
+    public int update(Producto2 producto2) {
+        String SQL = "UPDATE Productos SET Descripcion = ?, Precio = ?, Cantidad = ?, idCategorias = ?, idMarcas = ?, img = ? WHERE ID = ?";
+        return jdbcTemplate.update(SQL, new Object[] { producto2.getDescripcion(), producto2.getPrecio(),
+                producto2.getCantidad(), producto2.getIdCategorias(), producto2.getIdMarcas(), producto2.getImg(),
+                producto2.getID() });
     }
 }

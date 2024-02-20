@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.tienda.sara.tiendasara.model.Producto;
+import com.tienda.sara.tiendasara.model.Producto2;
 import com.tienda.sara.tiendasara.repository.IProductoRepository;
 
 @Service
@@ -47,16 +48,6 @@ public class ProductoService implements IProductoService {
         return row;
     }
 
-    @Override
-    public int update(Producto producto) {
-        int row;
-        try {
-            row = iProductoRepository.update(producto);
-        } catch (Exception e) {
-            throw e;
-        }
-        return row;
-    }
 
     @Override
     public List<Producto> findByCategoria(int categoriaID) {
@@ -78,5 +69,27 @@ public class ProductoService implements IProductoService {
             throw e;
         }
         return list;
+    }
+
+    @Override
+    public List<Producto2> findById2(int id) {
+        List<Producto2> list;
+        try {
+            list = iProductoRepository.productoById2(id);
+        } catch (Exception e) {
+            throw e;
+        }
+        return list;
+    }
+
+    @Override
+    public int update(Producto2 producto2) {
+        int row;
+        try {
+            row = iProductoRepository.update(producto2);
+        } catch (Exception e) {
+            throw e;
+        }
+        return row;
     }
 }
