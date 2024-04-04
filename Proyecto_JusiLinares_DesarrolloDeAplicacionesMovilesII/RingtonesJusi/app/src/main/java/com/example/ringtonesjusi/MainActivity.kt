@@ -7,19 +7,28 @@ import android.media.MediaPlayer
 import android.net.Uri
 import android.os.Environment
 import android.widget.ImageButton
+import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.FileProvider
 import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
 
+
 class MainActivity : AppCompatActivity() {
 
     private lateinit var mediaPlayer: MediaPlayer
 
+    private var puntos = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        // Obtener referencia al TextView
+        val textViewPuntos: TextView = findViewById(R.id.textView)
+
+        // Actualizar el texto del TextView con la cantidad de puntos actuales (0)
+        textViewPuntos.text = "Puntos obtenidos: $puntos"
 
         mediaPlayer = MediaPlayer.create(this, R.raw.tphone_ringtone)
 
@@ -165,6 +174,12 @@ class MainActivity : AppCompatActivity() {
 
     private fun assignShareListener(button: ImageButton, fileName: String) {
         button.setOnClickListener {
+            // Incrementar el contador de puntos
+            ++puntos
+            // Obtener referencia al TextView y actualizar el texto con la cantidad de puntos actuales
+            val textViewPuntos: TextView = findViewById(R.id.textView)
+            textViewPuntos.text = "Puntos obtenidos: $puntos"
+
             val resID = resources.getIdentifier(fileName, "raw", packageName)
             val audioUri = Uri.parse("android.resource://$packageName/$resID")
 
@@ -173,7 +188,7 @@ class MainActivity : AppCompatActivity() {
                 type = "audio/mp3"
                 putExtra(Intent.EXTRA_STREAM, audioUri)
             }
-
+            Toast.makeText(this, "Felicidades, has ganado un punto", Toast.LENGTH_SHORT).show()
             startActivity(Intent.createChooser(shareIntent, "Compartir audio"))
         }
     }

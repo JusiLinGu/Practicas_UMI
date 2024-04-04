@@ -565,7 +565,12 @@
                         android:scaleType="fitCenter"
                         android:src="@drawable/icon_bluetooth" />
                 </LinearLayout>
-
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="18sp"/>
             </LinearLayout>
         </ScrollView>
     </LinearLayout>
