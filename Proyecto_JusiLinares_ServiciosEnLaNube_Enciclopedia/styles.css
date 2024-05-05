@@ -1,0 +1,78 @@
+body {
+    margin: 0;
+    /* Elimina el margen predeterminado del cuerpo */
+    padding: 0;
+    /* Elimina el relleno predeterminado del cuerpo */
+    background-image: url('Imagenes/Background_StreetFighter.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat; 
+    max-width: 100%;
+    max-height: 100%;
+}
+
+
+
+h1,
+h2,
+p {
+    z-index: 1;
+    margin: 0;
+    /* Elimina el margen predeterminado de h1 y p */
+    padding: 3px;
+    /* Define el espacio entre h1 y p */
+    color: white;
+    /* Color del texto */
+    text-shadow: -1px -1px 0 black,
+        1px -1px 0 black,
+        -1px 1px 0 black,
+        1px 1px 0 black;
+    /* Trazo negro */
+}
+
+/* Estilo para la barra de navegación */
+nav {
+    background-color: #040000;
+    /* Color de fondo */
+    padding: 10px 0;
+    /* Espaciado interno */
+}
+
+/* Estilo para la lista de elementos de navegación */
+nav ul {
+    list-style: none;
+    /* Quita los puntos de lista */
+    display: flex;
+    /* Mostrar elementos en línea horizontal */
+    justify-content: center;
+    /* Centrar horizontalmente */
+}
+
+/* Estilo para cada elemento de navegación */
+nav ul li {
+    margin: 0 100px;
+    /* Margen entre elementos */
+}
+
+/* Estilo para los enlaces de navegación */
+nav ul li a {
+    text-decoration: none;
+    /* Quita la subraya de los enlaces */
+    color: white;
+    /* Color del texto */
+}
+
+/* Cambio de color al pasar el mouse sobre los enlaces */
+nav ul li a:hover {
+    color: #f1c40f;
+    /* Cambio de color al pasar el mouse */
+}
+
+.iconoh1 {
+    width: 30px;
+    /* Ajusta el tamaño de la imagen según sea necesario */
+    height: auto;
+    /* Para mantener la proporción de la imagen */
+    margin-right: 10px;
+    /* Espacio entre el icono y el texto */
+}
