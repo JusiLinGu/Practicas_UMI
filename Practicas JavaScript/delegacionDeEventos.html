@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Manejo DOM con JavaScript</title>
+    </head>
+<body>
+    <h1 id="titulo">Manejo DOM con JavaScript</h1>
+    <br>
+    <form id="formulario">
+        Nombre: <input type="text" id="nombre" class="formularioDatos">
+        <br><br>
+        Apellido: <input type="text" id="apellido" class="formularioDatos">
+    </form>
+    <script>
+        const FORMULARIO = document.getElementById('formulario');
+
+        FORMULARIO.addEventListener('focus', (evento)=>{
+            evento.target.style.background = 'yellow';
+        }, true);
+        FORMULARIO.addEventListener('blur', (evento) =>{
+            evento.target.style.background = '';
+        }, true);
+    </script>
+</body>
+</html>

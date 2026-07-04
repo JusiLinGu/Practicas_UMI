@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Manejo DOM con JavaScript</title>
+        <style>
+            .azul { color: blue; }
+        </style>
+    </head>
+<body>
+    <h1 onclick="this.innerHTML='Nuevo Titulo'">Manejo DOM con JavaScript</h1>
+    <h1 onclick="cambiarTexto(this)">Titulo 2</h1>
+    <h1 id="titulo3">Asociar eventos a elementos HTML</h1>
+    <br>
+    <div id="mostrar"></div>
+    <script>
+        function cambiarTexto(titulo2) {
+            console.log(titulo2);
+            console.log(titulo2.innerHTML);
+            titulo2.innerHTML = 'Cambiamos el titulo 2';
+            console.log(titulo2);
+            console.log(titulo2.innerHTML);
+        }
+
+        document.getElementById('titulo3').onclick = cambiarTexto;
+        function cambiarTexto() {
+            document.getElementById('mostrar').innerHTML = 'Nuevo contenido DIV';
+        }
+    </script>
+</body>
+</html>

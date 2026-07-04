@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Manejo DOM con JavaScript</title>
+    </head>
+<body>
+    <h1 id="titulo">Manejo DOM con JavaScript</h1>
+    <br>
+    Nombre: <input type="text" id="nombre">
+    <br><br>
+    Apellido: <input type="text" id="apellido">
+
+    <script>
+        //Quitamos el on a los nombres de los eventos que los llevan
+        //document.getElementById('evento.target = id del elemento que ejecutara el evento').addEventListener('evento.type = focus', funcion que da las instrucciones);
+        document.getElementById('nombre').addEventListener('focus', cambiar);
+        document.getElementById('nombre').addEventListener('blur', regresar);
+        document.getElementById('apellido').addEventListener('focus', cambiar);
+        document.getElementById('apellido').addEventListener('blur', regresar);
+
+        function cambiar(evento) {
+            let componente = evento.target;
+            componente.style.background = 'yellow';
+        }
+
+        function regresar(evento) {
+            evento.target.style.background = 'white';
+        }
+
+        /*addEventListener recibe el tipo de evento y la función que se ejecutará cuando ese evento ocurra.
+        Cuando el evento sucede, el navegador llama automáticamente a la función y le pasa un objeto evento, que contiene información sobre lo ocurrido.
+        Con evento.target accedemos al elemento HTML que disparó el evento, y así podemos aplicar cambios exactamente sobre ese elemento.*/
+    </script>
+</body>
+</html>

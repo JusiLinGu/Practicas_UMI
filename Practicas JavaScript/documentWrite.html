@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Manejo DOM con JavaScript</title>
+        <style>
+            .azul { color: blue; }
+        </style>
+    </head>
+<body>
+    <h1 id="titulo">Manejo DOM con JavaScript</h1>
+    <button onclick="nuevoTitulo()">Nuevo cabecero</button>
+    <button onclick="concatenarTitulos()">Concatenar titulos</button>
+    <button onclick="modificarImg()">Modificar IMG</button>
+    <button onclick="colorTitulo()">Cambiar color titulo</button>
+    <button onclick="finalizar()">Finalizar</button>
+    <br> <br>
+    <img id="imagen" src="./preyas.jpg"/>
+    <br>
+    <script>
+        document.write('Saludos desde javascript con document write');
+
+        function finalizar() {
+            document.write('Adios');
+        }
+
+        function nuevoTitulo() {
+            document.getElementById('titulo').innerHTML = 'Nuevo Titulo';
+        }
+
+        function concatenarTitulos() {
+            document.getElementById('titulo').innerHTML += '<br/>Nuevo Titulo';
+        }
+
+        function modificarImg() {
+            if (document.getElementById('imagen').src = 'http://globalmentoring.com.mx/imagenes/html5.png') {
+                
+            }
+        }
+
+        function colorTitulo() {
+            document.getElementById('titulo').style.color = 'blue';
+        }
+    </script>
+</body>
+</html>

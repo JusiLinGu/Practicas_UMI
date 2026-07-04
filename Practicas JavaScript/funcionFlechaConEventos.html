@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Manejo DOM con JavaScript</title>
+    </head>
+<body>
+    <h1 id="titulo">Manejo DOM con JavaScript</h1>
+    <br>
+    Nombre: <input type="text" id="nombre" class="formularioDatos">
+    <br><br>
+    Apellido: <input type="text" id="apellido" class="formularioDatos">
+
+    <script>
+        //Quitamos el on a los nombres de los eventos que los llevan
+        // En la variable inputsDatos obtenemos una NodeList con todos los input que tienen la clase formularioDatos
+        let inputsDatos = document.querySelectorAll('input.formularioDatos');
+        // Ahora recorremos cada elemento de la lista de inputs para agregar los eventos focus y blur a cada uno
+        inputsDatos.forEach(input => {
+            // A cada elemento individual de la lista se le agregan los eventos focus y blur
+            input.addEventListener('focus', cambiar);
+            input.addEventListener('blur', regresar);
+        });
+        /*NOTA PARA EXPLICACION: inputsDatos.forEach(...) = Por cada elemento de la lista inputsDatos haz algo
+        inputsDatos → NodeList de inputs
+        .forEach() → “recorre uno por uno”
+        input → es una variable que representa cada elemento individual
+        => → función flecha (Que seria el equivalente a function(input))
+        El código dentro se ejecuta una vez por cada elemento
+        Si tienes 2 inputs: Se ejecuta 2 veces
+        Si tienes 10 inputs: Se ejecuta 10 veces*/
+
+        //OTRA MANERA DE HACERLO CON FUNCION FLECHA
+        /*
+        document.getElementById('nombre').addEventListener('focus', (evento)=>{
+        evento.target.style.background = 'yellow';
+        });
+        */
+
+        function cambiar(evento) {
+            let componente = evento.target;
+            componente.style.background = 'yellow';
+        }
+
+        function regresar(evento) {
+            evento.target.style.background = 'white';
+        }
+
+        /*addEventListener recibe el tipo de evento y la función que se ejecutará cuando ese evento ocurra.
+        Cuando el evento sucede, el navegador llama automáticamente a la función y le pasa un objeto evento, que contiene información sobre lo ocurrido.
+        Con evento.target accedemos al elemento HTML que disparó el evento, y así podemos aplicar cambios exactamente sobre ese elemento.*/
+    </script>
+</body>
+</html>

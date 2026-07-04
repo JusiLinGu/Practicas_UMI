@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Ejemplo de DOM con JavaScript</title>
+        <style>
+            .azul { color: blue; }
+        </style>
+    </head>
+<body>
+    <h1 id="cabecero" class="azul">Ejemplo DOM con JavaScript</h1>
+    <p id="parrafo"><b>Saludos!</b></p>
+    <p id="parrafo2" class="azul">Saludos 2!</p>
+    <p id="parrafo3">Saludos 3!</p>
+
+    <script>
+        //Obtiene el contenido dentro de la etiqueta con el id cabecero
+        // y lo guarda en la variable del mismo nombre
+        let cabecero = document.getElementById("cabecero").innerHTML;
+        //Imprimer el valor de la variable cabecero
+        console.log('Valor cabecero: ' + cabecero);
+
+        //Primero guardamos en la variable la referencia al elemento con el id parrafo
+        let parrafo = document.getElementById("parrafo");
+        //Cuando se imprima la variable le indicamos que acceda al contenido dentro
+        //de la etiqueta con dicho id (Mensaje de saludo)
+        console.log('Valor parrafo: ' + parrafo.textContent);
+
+        let parrafo2 = document.getElementById('parrafo2');
+        console.log(`Valor parrafo 2: ${parrafo2.innerHTML}`);
+
+        parrafo.innerHTML = 'Nuevo parrafo';
+
+        console.log('Saludos desde JavaScript');
+
+        let parrafos = document.getElementsByTagName('p');
+        console.log(`No. párrafos. ${parrafos.length}`);
+        for(let i = 0; i < parrafos.length; i++) {
+            console.log(`i:${i} - ${parrafos[i].innerHTML}`);
+        }
+
+        let textosAzules = document.getElementsByClassName('azul');
+        console.log(`No. textos azules. ${textosAzules.length}`);
+        for(let textoAzul of textosAzules) {
+            console.log(`${textoAzul.innerHTML}`);
+        }
+
+        let parrafosAzules = document.querySelectorAll('p.azul');
+        console.log(`No. parrafos azules. ${parrafosAzules.length}`);
+        for(let parrafoAzul of parrafosAzules) {
+            console.log(`${parrafoAzul.innerHTML}`);
+        }
+
+        /*
+        NOTA: innerHTML devuelve TODO dentro del elemento, incluyendo tags
+        Por ejemplo en <p id="parrafo"><b>Saludos!</b></p>, devolveria
+        <b>Saludos!</b> y no solo Saludos!
+        
+        Se debe usar textContent para que devuelva solo el texto
+        SIN CONSIDERAR ELEMENTOS HTML QUE ESTEN DENTRO DE LA ETIQUETA CON EL ID
+        */
+    </script>
+</body>
+</html>
